@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"user\"\n}"
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john3@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"provider\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/auth/signup",
@@ -51,7 +51,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+							"raw": "{\n  \"email\": \"john3@example.com\",\n  \"password\": \"password123\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/auth/login",
@@ -84,12 +84,12 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDRiMmFiNjE1N2EwNWE1ODEwNWEiLCJlbWFpbCI6ImpvaG4zQGV4YW1wbGUuY29tIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzQ2MDY1ODM3LCJleHAiOjE3NDYxNTIyMzd9.K6DP_OAej5W3gFtNHc1BsiLEolsw5LysHW8iANTF9uA"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"date\": \"2025-05-01\",\n  \"startTime\": \"10:30\",\n  \"endTime\": \"10:40\"\n}"
+							"raw": "{\n  \"date\": \"2025-05-03\",\n  \"startTime\": \"10:55\",\n  \"endTime\": \"10:59\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/slots",
@@ -112,7 +112,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDM2NTdmMDhmMWIwMWNiN2ZhYzgiLCJlbWFpbCI6ImpvaG4yQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDYwNjQyNDAsImV4cCI6MTc0NjE1MDY0MH0.e5auTrADUNIu6a2XUv9mODnkVfrL4tn0JMuZcKLxW3E"
 							}
 						],
 						"url": {
@@ -134,7 +134,13 @@
 					"name": "Get Available Slots",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDM2NTdmMDhmMWIwMWNiN2ZhYzgiLCJlbWFpbCI6ImpvaG4yQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDYwNjQyNDAsImV4cCI6MTc0NjE1MDY0MH0.e5auTrADUNIu6a2XUv9mODnkVfrL4tn0JMuZcKLxW3E",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:3000/slots/available",
 							"protocol": "http",
@@ -145,6 +151,99 @@
 							"path": [
 								"slots",
 								"available"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Slots by providerId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDM2NTdmMDhmMWIwMWNiN2ZhYzgiLCJlbWFpbCI6ImpvaG4yQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDYwNjQyNDAsImV4cCI6MTc0NjE1MDY0MH0.e5auTrADUNIu6a2XUv9mODnkVfrL4tn0JMuZcKLxW3E",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/slots/available?providerId=6812c9fbdcf93196e4fb984a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"slots",
+								"available"
+							],
+							"query": [
+								{
+									"key": "providerId",
+									"value": "6812c9fbdcf93196e4fb984a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Slot",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDRiMmFiNjE1N2EwNWE1ODEwNWEiLCJlbWFpbCI6ImpvaG4zQGV4YW1wbGUuY29tIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzQ2MDY1ODM3LCJleHAiOjE3NDYxNTIyMzd9.K6DP_OAej5W3gFtNHc1BsiLEolsw5LysHW8iANTF9uA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/slots/6812d9f086683c43942d1c23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"slots",
+								"6812d9f086683c43942d1c23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Slot",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDRiMmFiNjE1N2EwNWE1ODEwNWEiLCJlbWFpbCI6ImpvaG4zQGV4YW1wbGUuY29tIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzQ2MDY1ODM3LCJleHAiOjE3NDYxNTIyMzd9.K6DP_OAej5W3gFtNHc1BsiLEolsw5LysHW8iANTF9uA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"date\": \"2025-05-03\",\n  \"startTime\": \"10:45\",\n  \"endTime\": \"10:55\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/slots/6812de78c2691594ee199d7b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"slots",
+								"6812de78c2691594ee199d7b"
 							]
 						}
 					},
@@ -166,12 +265,12 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDM2NTdmMDhmMWIwMWNiN2ZhYzgiLCJlbWFpbCI6ImpvaG4yQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDYwNjQyNDAsImV4cCI6MTc0NjE1MDY0MH0.e5auTrADUNIu6a2XUv9mODnkVfrL4tn0JMuZcKLxW3E"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"slotId\": \"<slot_id>\"\n}"
+							"raw": "{\n  \"slotId\": \"6812d446e137c99f6e3ddaf6\"\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/appointments/book",
@@ -195,11 +294,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDM2NTdmMDhmMWIwMWNiN2ZhYzgiLCJlbWFpbCI6ImpvaG4yQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDYwNjQyNDAsImV4cCI6MTc0NjE1MDY0MH0.e5auTrADUNIu6a2XUv9mODnkVfrL4tn0JMuZcKLxW3E"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/appointments/cancel/<appointment_id>",
+							"raw": "http://localhost:3000/appointments/cancel/6812d5f9ab6157a05a581064",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -208,7 +307,7 @@
 							"path": [
 								"appointments",
 								"cancel",
-								"<appointment_id>"
+								"6812d5f9ab6157a05a581064"
 							]
 						}
 					},
@@ -221,7 +320,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDM2NTdmMDhmMWIwMWNiN2ZhYzgiLCJlbWFpbCI6ImpvaG4yQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDYwNjQyNDAsImV4cCI6MTc0NjE1MDY0MH0.e5auTrADUNIu6a2XUv9mODnkVfrL4tn0JMuZcKLxW3E"
 							}
 						],
 						"url": {
@@ -246,7 +345,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{token}}"
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2ODEyZDRiMmFiNjE1N2EwNWE1ODEwNWEiLCJlbWFpbCI6ImpvaG4zQGV4YW1wbGUuY29tIiwicm9sZSI6InByb3ZpZGVyIiwiaWF0IjoxNzQ2MDY0NTc1LCJleHAiOjE3NDYxNTA5NzV9.zZck4u0ZW6v4M-SRS5gndoD5SU-seGj5bD8VINh79fA"
 							}
 						],
 						"url": {
