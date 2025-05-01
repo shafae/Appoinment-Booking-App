@@ -127,7 +127,7 @@ EMAIL_PASS=password
 
 ## 🧪 Postman Collection
 
-Import the included Postman collection JSON (see `/docs/postman-collection.json`) to test all routes easily.
+Import the included Postman collection JSON (see `/Appointment Booking API.postman_collection.json`) to test all routes easily.
 
 ---
 
