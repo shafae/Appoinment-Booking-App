@@ -1,0 +1,30 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: nestjs-booking-app
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+      - JWT_SECRET=asfreof_trbmtrber1157
+      - EMAIL_USER=mail@gmail.com
+      - EMAIL_PASS=password
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: nestjs-mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

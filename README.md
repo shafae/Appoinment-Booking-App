@@ -117,10 +117,10 @@ Authorization: Bearer <your-jwt-token>
 
 Create a `.env` file:
 ```env
-MONGO_URI=mongodb://localhost:27017/appointment-app
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-email-app-password
+MONGO_URI=mongodb://localhost:27017/
+JWT_SECRET=asfreof_trbmtrber1157
+EMAIL_USER=mail@gmail.com
+EMAIL_PASS=password
 ```
 
 ---
@@ -155,10 +155,10 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - MONGO_URI=mongodb://mongo:27017/appointment-app
-      - JWT_SECRET=your_jwt_secret
-      - EMAIL_USER=your-email@gmail.com
-      - EMAIL_PASS=your-email-app-password
+      - MONGO_URI=mongodb://mongo:27017/
+      - JWT_SECRET=asfreof_trbmtrber1157
+      - EMAIL_USER=mail@gmail.com
+      - EMAIL_PASS=password
     depends_on:
       - mongo
 
